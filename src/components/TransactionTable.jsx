@@ -1,6 +1,11 @@
 import React from 'react'
 
-export default function TransactionTable() {
+import Transaction from './Transaction';
+
+export default function TransactionTable(props) {
+
+  const transactions = props.transactions;
+
   return (
     <div>
       <div><h3>Transaction History</h3></div>
@@ -13,9 +18,19 @@ export default function TransactionTable() {
             <th>Date</th>
           </tr>
         </thead>
-        <tbody id="transaction-list"></tbody>
+        <tbody id="transaction-list">
+        {
+          transactions.map ( transaction => (
+            <Transaction  key={transaction.id} 
+                          transaction={transaction} />
+          ))
+        }
+        </tbody>
       </table>
-      <button id="clear-history" className="btn btn-danger btn-block">Clear History</button>
+      <button 
+        id="clear-history" 
+        className="btn btn-danger btn-block"
+        onClick={props.clearTransactions}>Clear History</button>
     </div>
   )
 }

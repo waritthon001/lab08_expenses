@@ -121,15 +121,17 @@ input[type='number'] {
   padding: 10px;
   margin: 10px 0;
 }
+*/
 
-.list li.plus {
+tr.plus {
   border-right: 5px solid #2ecc71;
 }
 
-.list li.minus {
+tr.minus {
   border-right: 5px solid #c0392b;
 }
 
+/*
 .delete-btn {
   cursor: pointer;
   background-color: #e74c3c;
