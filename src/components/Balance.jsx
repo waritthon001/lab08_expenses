@@ -3,8 +3,13 @@ import React from 'react'
 export default function Balance(props) {
   const transactions = props.transactions;
   const amounts = transactions.map( t => t.amount);
-  const total = amounts.reduce( (sum,amount) => (sum+=amount), 0).toFixed(2);
-  const sign = total<0 ? '-':'+';
+  const total = amounts.reduce( (sum,amount) => (sum+=amount), 0);
+
+  let sign = total<0 ? '-':'+';
+  if (total===0) {
+    sign = ''
+  }
+
   return (
     <div className="container mt-5 text-center">
       <h4>Your Balance</h4>

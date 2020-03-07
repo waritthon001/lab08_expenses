@@ -7,13 +7,13 @@ export default function IncomeExpense(props) {
   const amounts = transactions.map( transaction => transaction.amount);
   const income = amounts
     .filter( item => item>0)
-    .reduce ( (sum, item) => (sum += item),0)
-    .toFixed(2);
+    .reduce ( (sum, item) => (sum += item),0);
 
   const expense = -1 * amounts
     .filter( item => item<0)
-    .reduce ( (sum, item) => (sum += item),0)
-    .toFixed(2);
+    .reduce ( (sum, item) => (sum += item),0);
+
+  console.log(income+", "+expense);
 
   return (
     <div className="inc-exp-container">
